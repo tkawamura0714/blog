@@ -12,11 +12,11 @@
 ## Microsoft Endpoint Configuration Manager
 
 - [System Center 2012 Configuration Manager における MIF ファイルによるインベントリ拡張について](./articles/mecm/System Center 2012 Configuration Manager における MIF ファイルによるインベントリ拡張について.md)
-- [任意のレジストリ値を ハードウェア インベントリ として取得する方法](./articles/mecm/任意のレジストリ値を ハードウェア インベントリ として取得する方法.md)
+- [任意のレジストリ値を ハードウェア インベントリ として取得する方法](./articles/mecm/任意のレジストリ値をハードウェアインベントリとして取得する方法.md)
 
 ## Microsoft Intune
 
-- [Microsoft Intune の「制限付きアプリ」と「アプリの表示/非表示」機能について](./articles/intune/Microsoft Intune の制限付きアプリとアプリの表示非表示機能について.md)
+- [Microsoft Intune の「制限付きアプリ」と「アプリの表示/非表示」機能について](./articles/intune/MicrosoftIntune_constraintedapp_and_displayfunction.md)
 - [デバイスに適用されないiOSやAndroidポリシーのトラブルシューティング](./articles/intune/デバイスに適用されないiOSやAndroidポリシーのトラブルシューティング.md)
 
 
