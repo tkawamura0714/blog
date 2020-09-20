@@ -7,11 +7,11 @@
 
 ## Windows Server Update Services
 - [不要な更新プログラムは「拒否済み」に設定しよう！](./articles/wsus/不要な更新プログラムは拒否済みに設定しよう！.md)
-- [WSUS の同期先の URL の追加について](./articles/wsus/WSUS の同期先の URL の追加について.md)
+- [WSUS の同期先の URL の追加について](./articles/wsus/WSUS_の同期先の_URL_の追加について.md)
 
 ## Microsoft Endpoint Configuration Manager
 
-- [System Center 2012 Configuration Manager における MIF ファイルによるインベントリ拡張について](./articles/mecm/System Center 2012 Configuration Manager における MIF ファイルによるインベントリ拡張について.md)
+- [System Center 2012 Configuration Manager における MIF ファイルによるインベントリ拡張について](./articles/mecm/System_Center_2012_Configuration_Manager_における_MIF_ファイルによるインベントリ拡張について.md)
 - [任意のレジストリ値を ハードウェア インベントリ として取得する方法](./articles/mecm/任意のレジストリ値をハードウェアインベントリとして取得する方法.md)
 
 ## Microsoft Intune
