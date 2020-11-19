@@ -15,6 +15,9 @@
 - [System Center Configuration Manager サイトのアップグレード手順](./articles/mecm/20180823_02.md)
 - [SCCM CB 自動クライアント アップグレード手順](./articles/mecm/20180823_01.md)
 - [任意のレジストリ値を ハードウェア インベントリ として取得する方法](./articles/mecm/20140818_01.md)
+- [System Center Configuration Manager Current Branch のバージョン アップについて](./articles/mecm/2017818_01.md)
+- [System Center Configuration Manager クライアントがインストールされた PC でマスター イメージを再取得する手順](./articles/mecm/20171025_01.md)
+- [System Center Configuration Manager クライアントがインストールされた PC でマスター イメージを取得する手順 (ワークグループ対応版)](./articles/mecm/20171107_01.md)
 
 ## Microsoft Intune
 
