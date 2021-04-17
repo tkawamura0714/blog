@@ -10,6 +10,8 @@
 - [WSUS の同期先の URL の追加について](./articles/wsus/WSUS_の同期先の_URL_の追加について.md)
 
 ## Microsoft Endpoint Configuration Manager
+- [Microsoft Endpoint Configuration Manager 環境の HTTP のみの通信が非推奨となります](./articles/mecm/20210414_01.md)
+
 - [System Center Configuration Manager AD OU に基づくデバイス コレクションの作成について](./articles/mecm/20181010_01.md)
 - [System Center Configuration Manager における BranchCache、ピアキャッシュ機能について - その 1 (概要編)](./articles/mecm/20180911_01.md)
 - [System Center Configuration Manager サイトのアップグレード手順](./articles/mecm/20180823_02.md)
