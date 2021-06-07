@@ -26,3 +26,23 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         azure-storage-connection-string: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+
+  deploy-preview:
+    runs-on: ubuntu-latest
+    if:
+      if:
+      github.event_name == 'pull_request_target' &&
+      (github.event.action == 'opened' || github.event.action == 'reopened')
+    steps:
+    - name: PR checkout
+      uses: actions/checkout@v2
+      with:
+        ref: 'refs/pull/${{ github.event.client_payload.pull_request.number }}/merge'
+        submodules: true
+
+    - name: Deploy preview site
+      uses: cssjpn/blog-gh-actions/deploy-preview@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        azure-storage-connection-string: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+        preview-base-url: "https://shharadamem.z13.web.core.windows.net/"
