@@ -22,6 +22,7 @@
 - [System Center Configuration Manager クライアントがインストールされた PC でマスター イメージを再取得する手順](./articles/mecm/20171025_01.md)
 - [System Center Configuration Manager Current Branch のバージョン アップについて](./articles/mecm/20170818_01.md)
 - [ソフトウェアの更新ポイント サーバーにおいて w3wp.exe の CPU 使用率が高騰化する](./articles/mecm/20170808_01.md)
+- [System Center Configuration Manager 独自のエラーコードとメッセージについて](./articles/mecm/20170208_01.md)
 - [任意のレジストリ値を ハードウェア インベントリ として取得する方法](./articles/mecm/20140818_01.md)
 
 ## Microsoft Intune
