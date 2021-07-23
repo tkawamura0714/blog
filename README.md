@@ -12,8 +12,6 @@
 ## Microsoft Endpoint Configuration Manager
 - [Microsoft Endpoint Configuration Manager 環境の HTTP のみの通信が非推奨となります](./articles/mecm/20210414_01.md)
 
-- [System Center Configuration Manager Current Branch クライアントに関連する情報を完全に削除する方法](./articles/mecm/20190327_01.md)
-
 - [System Center Configuration Manager AD OU に基づくデバイス コレクションの作成について](./articles/mecm/20181010_01.md)
 - [System Center Configuration Manager における BranchCache、ピアキャッシュ機能について - その 1 (概要編)](./articles/mecm/20180911_01.md)
 - [System Center Configuration Manager サイトのアップグレード手順](./articles/mecm/20180823_02.md)
@@ -23,6 +21,7 @@
 - [System Center Configuration Manager クライアントがインストールされた PC でマスター イメージを取得する手順 (ワークグループ対応版)](./articles/mecm/20171107_01.md)
 - [System Center Configuration Manager クライアントがインストールされた PC でマスター イメージを再取得する手順](./articles/mecm/20171025_01.md)
 - [System Center Configuration Manager Current Branch のバージョン アップについて](./articles/mecm/20170818_01.md)
+- [ソフトウェアの更新ポイント サーバーにおいて w3wp.exe の CPU 使用率が高騰化する](./articles/mecm/20170808_01.md)
 - [任意のレジストリ値を ハードウェア インベントリ として取得する方法](./articles/mecm/20140818_01.md)
 
 ## Microsoft Intune
