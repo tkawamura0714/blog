@@ -25,6 +25,7 @@ root_tag_generator:
     - WSUS
     - トラブルシューティング
     - 情報採取
+    - Windows 365
   sub_tag_limit: 20
   sub_tag_sort: 'name' # 未実装
   
