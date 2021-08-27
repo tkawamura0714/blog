@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>WSUS の分類について | Japan Microsoft Endpoint Manager Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="みなさま、こんにちは。WSUS サポート チームです。    今回は WSUS で配信出来る更新プログラムの各分類について紹介します。WSUS では以下の分類の内、どれを配信するか選択することが出来ます。分類については、セキュリティの修正及び重要な修正を含めるために、「セキュリティ問題の修正プログラム」と「重要な更新」を選択することが一般的ですが、パッと見てどの分類にどんな更新プログラムが含">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WSUS の分類について">
+<meta property="og:url" content="https://jpmem.github.io/blog/wsus/2018-06-19_01/index.html">
+<meta property="og:site_name" content="Japan Microsoft Endpoint Manager Support Blog">
+<meta property="og:description" content="みなさま、こんにちは。WSUS サポート チームです。    今回は WSUS で配信出来る更新プログラムの各分類について紹介します。WSUS では以下の分類の内、どれを配信するか選択することが出来ます。分類については、セキュリティの修正及び重要な修正を含めるために、「セキュリティ問題の修正プログラム」と「重要な更新」を選択することが一般的ですが、パッと見てどの分類にどんな更新プログラムが含">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2018-06-18T15:00:00.000Z">
+<meta property="article:modified_time" content="2021-08-27T11:12:41.564Z">
+<meta property="article:author" content="Microsoft Endpoint Manager Support Japan">
+<meta property="article:tag" content="WSUS">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../blog/atom.xml" title="Japan Microsoft Endpoint Manager Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="../../index.html">Home</a>
+        
+          <a class="main-nav-link" href="../../archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../blog/atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpmem.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Microsoft Endpoint Manager Support Blog</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-wsus/2018-06-19_01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      WSUS の分類について
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="" class="article-date-single">
+  <time datetime="2018-06-18T15:00:00.000Z" itemprop="datePublished">2018-06-19</time>
+</a>
+        
+        
+        <a href="https://github.com/jpmem/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+b2c08488-c481-5972-850f-7af75393f709%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BWSUS+%E3%81%AE%E5%88%86%E9%A1%9E%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%5D%28https%3A%2F%2Fjpmem.github.io%2Fblog%2Fwsus%2F2018-06-19_01%2F%29%0A*+Content+Source%3A+%5Barticles%2Fwsus%2F2018-06-19_01.md%5D%28https%3A%2F%2Fgithub.com%2Fjpmem%2Fblog%2Fblob%2Fmaster%2Farticles%2Fwsus%2F2018-06-19_01.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpmem.github.io/blog/wsus/2018-06-19_01/" data-id="cksu9a877001t0ormbjz49wf1" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <br/>  
+みなさま、こんにちは。WSUS サポート チームです。  
+
+<p>今回は WSUS で配信出来る更新プログラムの各分類について紹介します。<br><br/><br>WSUS では以下の分類の内、どれを配信するか選択することが出来ます。分類については、セキュリティの修正及び重要な修正を含めるために、「セキュリティ問題の修正プログラム」と「重要な更新」を選択することが一般的ですが、パッと見てどの分類にどんな更新プログラムが含まれているか、なかなかイメージが沸かない方も多いかと思います。このブログでは詳細を紹介するので、是非参考としてください！<br><br/><br>また、WSUS では好きな分類を好きなように選択して配信することが出来ますが、安定した運用するために、ポイントがあります。まずはそのポイントについて紹介いたします。<br><br/>  </p>
+<h2 id="ポイント-特別な利用がない限り-”ドライバ”-の分類は絶対に選択しない"><a href="#ポイント-特別な利用がない限り-”ドライバ”-の分類は絶対に選択しない" class="headerlink" title="ポイント : 特別な利用がない限り ”ドライバ” の分類は絶対に選択しない"></a><strong>ポイント : 特別な利用がない限り ”ドライバ” の分類は絶対に選択しない</strong></h2><p>“ドライバ” の分類は、リリースされている更新プログラムの数が群を抜いて多く、選択すると数万件の更新プログラムが同期され、WSUS のパフォーマンスに大きな影響を与えてしまいます。このため、特別な利用がない限り、”ドライバ” の分類は絶対に選択しないことをお勧めします。<br><br/><br> そもそも “ドライバ” の更新は、各ハードウェア ベンダーの申請に基づいて公開されるため、WSUS で分類を選択していても、各ベンダーのドライバが常に最新のバージョンに更新されるとは限りません。<br><br/><br> WSUS から配信が必要なドライバがある場合には、下記ブログにて紹介している「A. 特定の更新プログラムのみ WSUS へインポートしたい」にて個別にインポートし、配信を行ないましょう。</p>
+<p><a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpwsus/2012/03/19/microsoft-update/">Microsoft Update カタログの活用法について</a><br><br/><br><br/>  </p>
+<h3 id="Feature-Packs"><a href="#Feature-Packs" class="headerlink" title="Feature Packs"></a><strong>Feature Packs</strong></h3><hr>
+<p>&lt; 概要の説明 &gt;<br>新しく公開された機能で、製品の次期リリースに含まれるような内容となります。<br><br/><br>&lt; 対象の更新プログラムの例 &gt;</p>
+<ul>
+<li>Microsoft Silverlight (KB3126036)</li>
+<li>Windows 7 用 Microsoft .NET Framework 4.5.2 (KB2901983)<br/>
+<br/></li>
+</ul>
+<h3 id="Service-Packs"><a href="#Service-Packs" class="headerlink" title="Service Packs"></a><strong>Service Packs</strong></h3><hr>
+<p>&lt; 概要の説明 &gt;<br>これまでに作成されたすべてのホットフィックス、セキュリティ問題の修正プログラム、重要な更新、および更新をまとめたものと、製品の公開以後に内部で発見された不具合に対する修正が含まれます。<br>Service Pack には、一部のお客様から要望された設計上の変更や機能が含まれることもあります。<br><br/><br>&lt; 対象の更新プログラムの例 &gt;</p>
+<ul>
+<li>Windows 7 Service Pack 1 (KB976932)</li>
+<li>Microsoft Office 2013 (KB2850036)  Service Pack 1</li>
+<li>Microsoft SQL Server 2012 Service Pack 3<br/>
+<br/></li>
+</ul>
+<h3 id="Upgrades"><a href="#Upgrades" class="headerlink" title="Upgrades"></a><strong>Upgrades</strong></h3><hr>
+<p>&lt; 概要の説明 &gt;<br>Windows 10 の機能更新プログラム (Feature Update) となります。<br>本分類の更新プログラムを配信するためには、WSUS で事前に準備が必要となります。詳細については、下記ブログにて紹介しております。<br><br/><br><a target="_blank" rel="noopener" href="https://blogs.technet.microsoft.com/jpwsus/2016/02/11/wsus-windows-10/">WSUS サーバーからの Windows 10 のアップグレードの配信</a><br><br/></p>
+<p>&lt;対象の更新プログラムの例&gt;</p>
+<ul>
+<li>Windows 10 Pro N、バージョン1511、10586にアップグレード – en-us,Volume<br/>
+<br/></li>
+</ul>
+<h3 id="セキュリティ問題の修正プログラム"><a href="#セキュリティ問題の修正プログラム" class="headerlink" title="セキュリティ問題の修正プログラム"></a><strong>セキュリティ問題の修正プログラム</strong></h3><hr>
+<p>&lt; 概要の説明 &gt;<br>セキュリティ上の脆弱性を修正するために、特定の製品に対して公開される修正プログラムです。「セキュリティのみの品質更新プログラム」や「セキュリティ マンスリー品質ロールアップ」も、この分類でリリースされております。<br><br/></p>
+<p>&lt; 対象の更新プログラムの例 &gt;</p>
+<ul>
+<li>Windows 8.1 用セキュリティ更新プログラム (KB3121212) / 特権の昇格に対処する Windows カーネル用のセキュリティ更新プログラム</li>
+<li>Windows 7 用セキュリティ更新プログラム (KB3121918) / リモートでのコード実行に対処する Microsoft Windows 用のセキュリティ更新プログラム</li>
+<li>Microsoft Silverlight のセキュリティ更新プログラム (KB3126036) / リモートでのコード実行に対処する Silverlight 用のセキュリティ更新プログラム<br/>
+<br/></li>
+</ul>
+<h3 id="ツール"><a href="#ツール" class="headerlink" title="ツール"></a><strong>ツール</strong></h3><hr>
+<p>&lt; 概要の説明 &gt;<br>あるタスク、または一連のタスクの実現を支援する、ユーティリティまたは機能です。<br><br/></p>
+<p>&lt; 対象の更新プログラムの例 &gt;</p>
+<ul>
+<li>ネットワークの診断ツール (KB914440) <br/>
+<br/></li>
+</ul>
+<h3 id="ドライバ"><a href="#ドライバ" class="headerlink" title="ドライバ"></a><strong>ドライバ</strong></h3><hr>
+<p>&lt; 概要の説明 &gt;<br>ドライバーの更新となります。各ハードウェアベンダーにてWSUS に公開した更新が公開されております。<br><br/></p>
+<p>&lt; 対象の更新プログラムの例 &gt;</p>
+<ul>
+<li>HP driver update for HP LaserJet M1530 MFP Series PCL 6<br/>
+<br/></li>
+</ul>
+<h3 id="ドライバーセット"><a href="#ドライバーセット" class="headerlink" title="ドライバーセット"></a><strong>ドライバーセット</strong></h3><hr>
+<p>&lt; 概要の説明 &gt;<br>特定のモデルのコンピューターのハードウェアをサポートするドライバー郡となります。<br>Windows Server 2016 以降の WSUS でのみ、本分類は表示・選択できます。<br><br/><br><br/></p>
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a><strong>更新</strong></h3><hr>
+<p>&lt; 概要の説明 &gt;<br>重要性が低く、セキュリティに関連しない不具合を修正するために、特定のプログラムに対して公開される修正プログラムです。「マンスリー品質ロールアップのプレビュー」もこの分類にてリリースされております。<br><br/></p>
+<p>&lt; 対象の更新プログラムの例 &gt;</p>
+<ul>
+<li>Windows 7 用更新プログラム (KB2977759) / Windows 7 の RTM 版の互換性に関する更新プログラム</li>
+<li>Windows 8.1 用更新プログラム (KB2976978) / Windows 8.1 および Windows 8 の互換性更新プログラム</li>
+<li>Windows Server 2012 R2 用更新プログラム (KB3112148)  / 2015 年 12 月付、Windows オペレーティング システム用の累積的なタイム ゾーン更新プログラム<br/>
+<br/></li>
+</ul>
+<h3 id="修正プログラム集"><a href="#修正プログラム集" class="headerlink" title="修正プログラム集"></a><strong>修正プログラム集</strong></h3><hr>
+<p>&lt; 概要の説明 &gt;<br>ホットフィックス、セキュリティ問題の修正プログラム、重要な更新、および更新を 1 つのパッケージにまとめ、展開したものです。修正プログラム集は通常、“セキュリティ”などの特定の分野、または “インターネット インフォメーション サービス (IIS)” などの製品のコンポーネントに対して用意されます。<br><br/></p>
+<p>&lt; 対象の更新プログラムの例 &gt;</p>
+<ul>
+<li>悪意のあるソフトウェアの削除ツール - 2016 年 1 月 (KB890830)</li>
+<li>Windows 8.1 用更新プログラム (KB3025417) / Windows 8.1 で Windows 8 の Windows Defender のマルウェア対策用プラットフォームの更新</li>
+<li>Microsoft System Center 2012 R2 - Operations Manager Agent の更新プログラムのロールアップ 8 (KB3096382)<br/>
+<br/></li>
+</ul>
+<h3 id="重要な更新"><a href="#重要な更新" class="headerlink" title="重要な更新"></a><strong>重要な更新</strong></h3><hr>
+<p>&lt; 概要の説明 &gt;<br>重要性が高く、セキュリティに関連しない不具合を修正するために、特定の問題に対して公開される修正プログラムです。<br><br/></p>
+<p>&lt; 対象の更新プログラムの例 &gt;</p>
+<ul>
+<li>Windows 8.1 用更新プログラム (KB3112336) / Windows 8.1 と Windows Server 2012 R2 の更新</li>
+<li>Windows 7 用更新プログラム (KB3112343) / Windows 7 および Windows Server 2008 R2 の Windows Update Agent</li>
+<li>Microsoft Office 2013 (KB3114498) の更新プログラム / 2016 年 1 月 12 日 Office 2013 の更新<br/>
+<br/></li>
+</ul>
+<h3 id="定義更新プログラム"><a href="#定義更新プログラム" class="headerlink" title="定義更新プログラム"></a><strong>定義更新プログラム</strong></h3><hr>
+<p>&lt; 概要の説明 &gt;<br>製品の定義データベースへの追加を含む、広範かつ頻繁にリリースされるソフトウェア更新プログラムです。<br>定義データベースは、悪意のあるコード、フィッシングWebサイト、ジャンク電子メールなど、特定の属性を含むオブジェクトを検出するために、頻繁に使用されます。<br>Windows Defender やOfficeをお使いの場合に設定することが多いものとなります。<br><br/></p>
+<p>&lt; 対象の更新プログラムの例 &gt;</p>
+<ul>
+<li>Microsoft Security Essentials の定義の更新 - KB2310138 (定義 1.213.3177.0)</li>
+<li>Microsoft Endpoint Protection の定義の更新 - KB2461484 (定義 1.213.3168.0)</li>
+<li>Microsoft Office 2010 (KB3114563) の定義の更新<br/>
+<br/></li>
+</ul>
+<h3 id="参考情報-WSUS-上の各分類と-Windows-Update-上の分類について"><a href="#参考情報-WSUS-上の各分類と-Windows-Update-上の分類について" class="headerlink" title="参考情報 : WSUS 上の各分類と Windows Update 上の分類について"></a><strong>参考情報 : WSUS 上の各分類と Windows Update 上の分類について</strong></h3><hr>
+<p>さて、分類関連の設定でよくご要望いただく内容として「Windows Update で配信されている内容と、全く同一の更新プログラムを WSUS から配りたい！」というお問い合わせをいただきます。結論から言ってしまうと、WSUS 向けに公開されている更新プログラムと、Windows Update 向けに公開されている更新プログラムは完全に一致するわけではないので、全く同一の状態とすることは出来ません。<br><br/><br>これは WSUS はエンタープライズ / 企業向けの用途、Windows Update はコンシューマー / 一般ユーザー向けの用途を想定しているためです。(例えば Windows 10 への無償アップグレードの通知用の更新プログラムは WSUS 環境に着信しないように考慮が行われておりました。)<br><br/></p>
+<p>ただし、可能な限り、配信される更新プログラムを近づけることは可能です。Windows Update では、上述の WSUS の分類のように細かく分類されておらず、<br>下記のように「重要な更新プログラム」と「オプション / 推奨される更新プログラム」に分類されています。</p>
+<ul>
+<li>重要な更新プログラム : 「重要な更新」、「セキュリティ問題の修正プログラム」、「定義更新プログラム」、「修正プログラム集」、「 Service Packs 」</li>
+<li>オプション / 推奨される更新プログラム : 「ツール」、「 Feature Packs 」、「更新」</li>
+</ul>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/WSUS/" rel="tag">WSUS</a></li></ul>
+
+        
+        <a href="https://github.com/jpmem/blog/edit/master/articles/wsus/2018-06-19_01.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../mecm/20180619_01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          System Center Configuration Manager で、できる限り早く更新プログラムを適用する方法について
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../mecm/20180511_01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">「指定したパッケージおよびプログラムの展開のステータス」レポートについて</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../w365/2021-08-20_01/">Windows 365 Cloud PC を日本語化する手順</a>
+          </li>
+        
+          <li>
+            <a href="../../w365/2021-08-16_01/">Windows 365 FAQ</a>
+          </li>
+        
+          <li>
+            <a href="../../w365/2021-08-11_01/">Windows 365 Business のプロビジョニングが長時間経過しても終了しない場合について</a>
+          </li>
+        
+          <li>
+            <a href="../../w365/2021-08-11_02/">Windows 365 で Microsoft 365 Apps のユーザー ログイン に失敗する</a>
+          </li>
+        
+          <li>
+            <a href="../../w365/2021-08-04_01/">Windows 365 Enterprise をご利用の際の注意点</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Intune/" rel="tag">Intune</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/MECM/" rel="tag">MECM</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/WSUS/" rel="tag">WSUS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Windows-365/" rel="tag">Windows 365</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Intune/">Intune</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/MECM/">MECM</a><span class="tag-list-count">19</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Windows-365/">Windows 365</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/WSUS/">WSUS</a><span class="tag-list-count">8</span><ul></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">2020 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/03/">2019 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/02/">2019 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/10/">2018 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/09/">2018 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/08/">2018 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/07/">2018 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/06/">2018 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/05/">2018 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/03/">2018 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/12/">2017 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/11/">2017 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/10/">2017 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/08/">2017 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/02/">2017 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/11/">2016 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/10/">2016 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2014/08/">2014 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2014/03/">2014 / 03</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/Intune/" style="font-size: 10px;">Intune</a> <a href="../../tags/MECM/" style="font-size: 20px;">MECM</a> <a href="../../tags/WSUS/" style="font-size: 16.67px;">WSUS</a> <a href="../../tags/Windows-365/" style="font-size: 13.33px;">Windows 365</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Microsoft Endpoint Manager Support Japan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
