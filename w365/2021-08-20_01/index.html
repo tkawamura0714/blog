@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Windows 365 Cloud PC を日本語化する手順 | Japan Microsoft Endpoint Manager Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="みなさま、こんにちは。Microsoft Endpoint Manager サポート チームです。   本日は Windows 365 でプロビジョニングした Cloud PC を日本語化する手順をご紹介します。Windows 365 Enterprise の場合は、カスタム イメージを登録できますので、日本語化したイメージをプロビジョニングすれば、最初から日本語化された Cloud PC を利用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 365 Cloud PC を日本語化する手順">
+<meta property="og:url" content="https://jpmem.github.io/blog/w365/2021-08-20_01/index.html">
+<meta property="og:site_name" content="Japan Microsoft Endpoint Manager Support Blog">
+<meta property="og:description" content="みなさま、こんにちは。Microsoft Endpoint Manager サポート チームです。   本日は Windows 365 でプロビジョニングした Cloud PC を日本語化する手順をご紹介します。Windows 365 Enterprise の場合は、カスタム イメージを登録できますので、日本語化したイメージをプロビジョニングすれば、最初から日本語化された Cloud PC を利用">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210820150826185.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210820150846942.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210827151309134.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210827151509134.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210820150903020.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210820151025805.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210820151042379.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210820151101169.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210820151139511.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210820151159119.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210820151218317.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210820151237059.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210820151247994.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210820151309134.png">
+<meta property="article:published_time" content="2021-08-19T15:00:00.000Z">
+<meta property="article:modified_time" content="2021-08-27T10:50:21.243Z">
+<meta property="article:author" content="Microsoft Endpoint Manager Support Japan">
+<meta property="article:tag" content="Windows 365">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210820150826185.png">
+  
+    <link rel="alternate" href="../../blog/atom.xml" title="Japan Microsoft Endpoint Manager Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="../../index.html">Home</a>
+        
+          <a class="main-nav-link" href="../../archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../blog/atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpmem.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Microsoft Endpoint Manager Support Blog</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-w365/2021-08-20_01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Windows 365 Cloud PC を日本語化する手順
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="" class="article-date-single">
+  <time datetime="2021-08-19T15:00:00.000Z" itemprop="datePublished">2021-08-20</time>
+</a>
+        
+        
+        <a href="https://github.com/jpmem/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+0644151a-5055-505b-b4cf-67d2dc7b4662%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BWindows+365+Cloud+PC+%E3%82%92%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8C%96%E3%81%99%E3%82%8B%E6%89%8B%E9%A0%86%5D%28https%3A%2F%2Fjpmem.github.io%2Fblog%2Fw365%2F2021-08-20_01%2F%29%0A*+Content+Source%3A+%5Barticles%2Fw365%2F2021-08-20_01.md%5D%28https%3A%2F%2Fgithub.com%2Fjpmem%2Fblog%2Fblob%2Fmaster%2Farticles%2Fw365%2F2021-08-20_01.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpmem.github.io/blog/w365/2021-08-20_01/" data-id="cksu8hi0f001e0orw811ahh2w" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>みなさま、こんにちは。Microsoft Endpoint Manager サポート チームです。  </p>
+<p>本日は Windows 365 でプロビジョニングした Cloud PC を日本語化する手順をご紹介します。<br>Windows 365 Enterprise の場合は、カスタム イメージを登録できますので、日本語化したイメージをプロビジョニングすれば、最初から日本語化された Cloud PC を利用できることになりますが、Windows 365 Business の場合は、カスタム イメージを使用することができず、英語版の Windows が動作する Cloud PC を利用することになります。</p>
+<p>日本語化するための方法に関するお問い合わせも多くいただいておりますので、ここでは Windows 365 Business で用意した Cloud PC を日本語化する手順の例をご紹介します。</p>
+<h2 id="免責事項"><a href="#免責事項" class="headerlink" title="免責事項"></a>免責事項</h2><p>下記内容は 2021/8/20 時点の内容についての記載となっております。今後内容が更新されることもございますので、その点ご承知置きくださいますようお願い致します。</p>
+<h2 id="手順"><a href="#手順" class="headerlink" title="手順"></a>手順</h2><ol>
+<li><p><a target="_blank" rel="noopener" href="https://windows365.microsoft.com/">https://windows365.microsoft.com</a> にアクセスし、Cloud PC を利用可能なユーザーでサインインして Cloud PC にログインします。</p>
+</li>
+<li><p>スタート メニューより歯車のマークを選択し、[Settings] を立ち上げます。</p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820150826185.png" alt="image-20210820150826185"></p>
+</li>
+<li><p>[Time &amp; Language] を選択します。</p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820150846942.png" alt="image-20210820150846942"></p>
+</li>
+<li><p>[Date &amp; time] の [Time zone] を “(UTC +09:00) Osaka, Sapporo, Tokyo” に設定します。</p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210827151309134.png" alt="image-20210827151309134"></p>
+</li>
+<li><p>[Region] を選択し、[Region] を “Japan”、[Regional format] を “Japanese (Japan)” に設定します。</p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210827151509134.png" alt="image-20210827151509134"></p>
+</li>
+<li><p>[Language] - [Add a language] を選択します。</p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820150903020.png" alt="image-20210820150903020"></p>
+</li>
+<li><p>“Japanese” を追加し、[Next] をクリックします。</p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820151025805.png" alt="image-20210820151025805"></p>
+</li>
+<li><p>下記のように選択し、[Install] をクリックします。</p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820151042379.png" alt="image-20210820151042379"></p>
+</li>
+<li><p>言語パックのインストールが開始されます。インストールが完了すると、下記のように通知されるため、[Yes, sign out now.] を選択し、一旦サインアウトします。</p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820151101169.png" alt="image-20210820151101169"></p>
+</li>
+<li><p>再度 Cloud PC にサインインし、管理者として実行にて起動した PowerShell コンソールで、以下のコマンドを実行し、システム ロケールを ja-JP に変更します。  </p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-WinSystemLocale</span> <span class="literal">-SystemLocale</span> ja<span class="literal">-JP</span></span><br></pre></td></tr></table></figure></li>
+<li><p>スタート メニューより歯車のマークを選択し、[設定] を立ち上げ直します。</p>
+</li>
+</ol>
+<p>   <img src="/blog/w365/2021-08-20_01/image-20210820151139511.png" alt="image-20210820151139511"></p>
+<ol start="12">
+<li>[時刻と言語] を選択します。</li>
+</ol>
+<p>   <img src="/blog/w365/2021-08-20_01/image-20210820151159119.png" alt="image-20210820151159119"></p>
+<ol start="13">
+<li><p>[言語] - [日本語] を選択して [オプション] をクリックします。</p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820151218317.png" alt="image-20210820151218317"></p>
+</li>
+<li><p>ハードウェア キーボード レイアウトより [レイアウトを変更する] を選択して、日本語キーボードをご利用の場合は、設定を変更して [今すぐ再起動する] を選択し、再起動を行います。</p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820151237059.png" alt="image-20210820151237059"></p>
+</li>
+<li><p>再起動後に接続することで、日本語入力が出来ないか、ご確認ください。なお、IME の準備が整ってない場合、IME の切り替え時に下記のような通知が行われますため、この場合、数分程度お待ちいただけますと幸いです。</p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820151247994.png" alt="image-20210820151247994"></p>
+</li>
+<li><p>ブラウザから利用する場合には、PC に接続後、下記の設定も有効化してください。</p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820151309134.png" alt="image-20210820151309134"></p>
+</li>
+</ol>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Windows-365/" rel="tag">Windows 365</a></li></ul>
+
+        
+        <a href="https://github.com/jpmem/blog/edit/master/articles/w365/2021-08-20_01.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../2021-08-16_01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Windows 365 FAQ</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">Windows 365 Cloud PC を日本語化する手順</a>
+          </li>
+        
+          <li>
+            <a href="../2021-08-16_01/">Windows 365 FAQ</a>
+          </li>
+        
+          <li>
+            <a href="../2021-08-11_01/">Windows 365 Business のプロビジョニングが長時間経過しても終了しない場合について</a>
+          </li>
+        
+          <li>
+            <a href="../2021-08-11_02/">Windows 365 で Microsoft 365 Apps のユーザー ログイン に失敗する</a>
+          </li>
+        
+          <li>
+            <a href="../2021-08-04_01/">Windows 365 Enterprise をご利用の際の注意点</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Intune/" rel="tag">Intune</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/MECM/" rel="tag">MECM</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/WSUS/" rel="tag">WSUS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Windows-365/" rel="tag">Windows 365</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Intune/">Intune</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/MECM/">MECM</a><span class="tag-list-count">19</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Windows-365/">Windows 365</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/WSUS/">WSUS</a><span class="tag-list-count">7</span><ul></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">2020 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/03/">2019 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/02/">2019 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/10/">2018 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/09/">2018 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/08/">2018 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/07/">2018 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/06/">2018 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/05/">2018 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/03/">2018 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/12/">2017 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/11/">2017 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/10/">2017 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/08/">2017 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/02/">2017 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/11/">2016 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/10/">2016 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2014/08/">2014 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2014/03/">2014 / 03</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/Intune/" style="font-size: 10px;">Intune</a> <a href="../../tags/MECM/" style="font-size: 20px;">MECM</a> <a href="../../tags/WSUS/" style="font-size: 16.67px;">WSUS</a> <a href="../../tags/Windows-365/" style="font-size: 13.33px;">Windows 365</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Microsoft Endpoint Manager Support Japan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

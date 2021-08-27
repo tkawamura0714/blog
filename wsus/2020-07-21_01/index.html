@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>WSUS メンテナンス ガイド | Japan Microsoft Endpoint Manager Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="みなさま、こんにちは。WSUS サポート チームです。本日は WSUS サーバーのメンテナンス方法について、纏めてご紹介をいたします。 WSUS は月々リリースされる更新プログラムを配信出来るよう、更新プログラムの情報をサーバー上に溜め込む必要があります。しかし、この製品の性質上、日々メンテナンスを実施しないと、データベースや情報が肥大化し、様々な障害や弊害が発生しやすくなってしまいます。弊サポー">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WSUS メンテナンス ガイド">
+<meta property="og:url" content="https://jpmem.github.io/blog/wsus/2020-07-21_01/index.html">
+<meta property="og:site_name" content="Japan Microsoft Endpoint Manager Support Blog">
+<meta property="og:description" content="みなさま、こんにちは。WSUS サポート チームです。本日は WSUS サーバーのメンテナンス方法について、纏めてご紹介をいたします。 WSUS は月々リリースされる更新プログラムを配信出来るよう、更新プログラムの情報をサーバー上に溜め込む必要があります。しかし、この製品の性質上、日々メンテナンスを実施しないと、データベースや情報が肥大化し、様々な障害や弊害が発生しやすくなってしまいます。弊サポー">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://jpmem.github.io/blog/wsus/2020-07-21_01/image-20210731021225318.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/wsus/2020-07-21_01/image-20210731021243281.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/wsus/2020-07-21_01/image-20210731021305833.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/wsus/2020-07-21_01/image-20210731021324032.png">
+<meta property="og:image" content="https://jpmem.github.io/blog/wsus/2020-07-21_01/image-20210731021339489.png">
+<meta property="article:published_time" content="2020-07-20T15:00:00.000Z">
+<meta property="article:modified_time" content="2021-08-27T10:50:21.271Z">
+<meta property="article:author" content="Microsoft Endpoint Manager Support Japan">
+<meta property="article:tag" content="WSUS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jpmem.github.io/blog/wsus/2020-07-21_01/image-20210731021225318.png">
+  
+    <link rel="alternate" href="../../blog/atom.xml" title="Japan Microsoft Endpoint Manager Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="../../index.html">Home</a>
+        
+          <a class="main-nav-link" href="../../archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../blog/atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpmem.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Microsoft Endpoint Manager Support Blog</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-wsus/2020-07-21_01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      WSUS メンテナンス ガイド
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="" class="article-date-single">
+  <time datetime="2020-07-20T15:00:00.000Z" itemprop="datePublished">2020-07-21</time>
+</a>
+        
+        
+        <a href="https://github.com/jpmem/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+21084085-0ef9-5dd5-90ac-c727a61d5106%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BWSUS+%E3%83%A1%E3%83%B3%E3%83%86%E3%83%8A%E3%83%B3%E3%82%B9+%E3%82%AC%E3%82%A4%E3%83%89%5D%28https%3A%2F%2Fjpmem.github.io%2Fblog%2Fwsus%2F2020-07-21_01%2F%29%0A*+Content+Source%3A+%5Barticles%2Fwsus%2F2020-07-21_01.md%5D%28https%3A%2F%2Fgithub.com%2Fjpmem%2Fblog%2Fblob%2Fmaster%2Farticles%2Fwsus%2F2020-07-21_01.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpmem.github.io/blog/wsus/2020-07-21_01/" data-id="cksu8hi0r001w0orw3j35f7jb" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>みなさま、こんにちは。WSUS サポート チームです。<br>本日は WSUS サーバーのメンテナンス方法について、纏めてご紹介をいたします。</p>
+<p>WSUS は月々リリースされる更新プログラムを配信出来るよう、更新プログラムの情報をサーバー上に溜め込む必要があります。しかし、この製品の性質上、日々メンテナンスを実施しないと、データベースや情報が肥大化し、様々な障害や弊害が発生しやすくなってしまいます。<br>弊サポート部門へいただく様々なお問い合わせも、最終的にはこのいずれかの対処に行き着くことが、ほとんどですので是非 WSUS をこれから導入・構築される方々、また既に運用されている方々は、ご一読ください！</p>
+<h2 id="WSUS-の各種メンテナンス"><a href="#WSUS-の各種メンテナンス" class="headerlink" title="WSUS の各種メンテナンス"></a>WSUS の各種メンテナンス</h2><p>一般的な WSUS のメンテナンスとして、下記の 3 種類のメンテナンスは更新プログラムのリリースと合わせて、月 1 回程度実行していただくことをオススメしております。各メンテナンスについては、既に以下のブログで、それぞれ紹介していますので、WSUS をご利用いただいている方で、まだ読んだことがない方は一度内容をご覧ください。</p>
+<ol>
+<li><a href="https://jpmem.github.io/blog/wsus/2014-03-05_01/">WSUS DB インデックスの再構成の手順について</a></li>
+<li><a href="https://jpmem.github.io/blog/wsus/2017-12-05_01/">WSUS のクリーンアップ ウィザードについて</a></li>
+<li><a href="https://jpmem.github.io/blog/wsus/2017-12-11_01/">不要な更新プログラムは「拒否済み」に設定しよう！</a></li>
+</ol>
+<p>また、これらのメンテナンスはいずれもコマンド ライン等から実行出来るため、タスク スケジューラと組み合わせて自動化することが可能です。今回は自動化の手順とそれに伴う注意事項も紹介しますので、運用の中に取り入れる上で参考としていただけると幸いです。</p>
+<h2 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h2><p>以下にメンテナンスを実施いただく上での注意事項をご案内します。メンテナンスの自動化を行う前に、必ずご一読ください。</p>
+<ul>
+<li>初めてメンテナンスを実施する場合には、各メンテナンスが正常に動作することを一度必ずご確認ください。特に何年も運用しているような環境で、<strong>初めてメンテナンスを実施する場合には、処理が長時間 (数十時間 ～) に及ぶ可能性もあるので、ご留意ください。</strong> </li>
+<li>各メンテナンスと WSUS の同期は、なるべく同じ時刻に実行されないようにしてください。いずれのメンテナンスも WSUS の負荷が高くなる可能性があるため、各メンテナンスを同時に実行したり、<strong>メンテナンスと同期を同時に実行すると失敗することがあります。</strong></li>
+<li>「3」のブログで紹介している置き換えが行われた更新プログラムを「拒否済み」に設定するスクリプトを利用して貰えると、新しい更新プログラムにて置き換えられている古い更新プログラムのみを、簡単に「拒否済み」に設定することが可能です。今回ご案内の手順でも、このスクリプトを利用します。<strong>ただし、最新の更新プログラムを常に配信するような運用をしていない場合 (リリース後 1 ヶ月遅れで配信したり、特定の更新を除外して配信しているような場合) には、配信対処の更新プログラムが「拒否済み」に設定されてしまうこともあるため、ご注意ください。</strong></li>
+<li>レプリカ構成の WSUS を利用している場合には、「2」のクリーンアップ ウィザードは上位のサーバーから実行する必要があるため、上位のサーバーから順番にメンテナンスが実行されるよう、スケジュールをしてください。 </li>
+<li>階層構成の WSUS の場合でも「1」「2」のメンテナンスについては、上位下位双方の WSUS にて実施してください。なお。レプリカ構成の WSUS の場合には、「3」の「拒否済み」の設定については、上位の WSUS サーバーだけで実施すれば問題ありません。</li>
+</ul>
+<h2 id="メンテナンスの自動化"><a href="#メンテナンスの自動化" class="headerlink" title="メンテナンスの自動化"></a>メンテナンスの自動化</h2><p>それでは各メンテナンスを自動化する方法について、それぞれ紹介していきます。</p>
+<h3 id="SUSDB-のインデックス再構築をタスク-スケジューラから自動実行させる"><a href="#SUSDB-のインデックス再構築をタスク-スケジューラから自動実行させる" class="headerlink" title="SUSDB のインデックス再構築をタスク スケジューラから自動実行させる"></a>SUSDB のインデックス再構築をタスク スケジューラから自動実行させる</h3><ol>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/microsoft-jpcssmem/WSUS/releases/latest/download/WsusDBMaintenance.sql">こちら</a>より、インデックスの SUSDB のインデックス再構築を行うスクリプトを入手し、WSUS サーバー上に保存します。(WsusDBMaintenance.sql 等)</p>
+</li>
+<li><p>スタート メニューより、タスク スケジューラを立ち上げます。</p>
+</li>
+<li><p>[基本タスクの作成] を選択し、任意の名前を付けます。</p>
+<p><img src="/blog/wsus/2020-07-21_01/image-20210731021225318.png" alt="image-20210731021225318"></p>
+</li>
+<li><p>インデックスの再構築を実施するスケジュールを指定します。以下の例では、毎月第一日曜日の AM 2:00 に実行するよう指定しています。</p>
+<p><img src="/blog/wsus/2020-07-21_01/image-20210731021243281.png" alt="image-20210731021243281"></p>
+</li>
+<li><p>[プログラムの開始] を選択して、以下のような指定を行ないます。以下の指定では -i オプションで手順 1 で保存したスクリプトのパスを指定し、-o にてスクリプトの実行ログの出力パスを指定しています。</p>
+</li>
+</ol>
+<p>Windows Server 2012 以降の WSUS で WID を利用している場合の指定例<br><code>&quot;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SQLCMD.exe&quot; -S \\.\pipe\Microsoft##WID\tsql\query -i C:\WSUS\WsusDBMaintenance.sql -o c:\WSUS\reindexout.txt</code><br>※ SQL Server を利用している場合には -S にて SQL Server のインスタンス名を指定します。<br><img src="/blog/wsus/2020-07-21_01/image-20210731021305833.png" alt="image-20210731021305833"></p>
+<ol start="6">
+<li><p>以下のような警告が出力されますが [はい] を選択して、そのままタスクの作成を完了させます。</p>
+<p><img src="/blog/wsus/2020-07-21_01/image-20210731021324032.png" alt="image-20210731021324032"></p>
+</li>
+<li><p>作成したタスクを右クリックして [プロパティ] を選択し、以下の 2 つの設定を行って [OK] をクリックします。</p>
+<p><img src="/blog/wsus/2020-07-21_01/image-20210731021339489.png" alt="image-20210731021339489"></p>
+</li>
+<li><p>試しに作成したタスクを右クリックして [実行する] を選択して実行してみましょう。ログを確認してエラー等が出力されておらず、最後の方に <strong>“Statistics for all tables have been updated”</strong> または <strong>“全テーブルの統計が更新されました”</strong> が出力されていれば、問題なくタスクの登録が出来ています。</p>
+</li>
+</ol>
+<h3 id="クリーンアップ-ウィザードをタスク-スケジューラから自動実行させる"><a href="#クリーンアップ-ウィザードをタスク-スケジューラから自動実行させる" class="headerlink" title="クリーンアップ ウィザードをタスク スケジューラから自動実行させる"></a>クリーンアップ ウィザードをタスク スケジューラから自動実行させる</h3><ol>
+<li>インデックスの再構築の自動化の手順と同様にタスク スケジューラを起動し、基本タスクの作成を行ない、クリーンアップ ウィザードを実行するスケジュールを指定 (上述の手順 2 ~ 4) します。<br>※ インデックスの再構築とはスケジュールが被らないよう、インデックス再構築の実行開始の数時間後や別の日等を指定します。</li>
+<li>[プログラムの開始] を選択して、実行したいクリーンアップの項目に合わせて、以下のような指定を行ないます。</li>
+</ol>
+<p>Windows Server 2012 以降の WSUS で WID を利用しており、全ての項目を実行する場合の指定例<br><code>Powershell -Command &quot;Invoke-WsusServerCleanup -CompressUpdates -CleanupObsoleteUpdates -CleanupObsoleteComputers -CleanupUnneededContentFiles -DeclineExpiredUpdates -DeclineSupersededUpdates&quot; &gt; C:\WSUS\wsusClean.txt</code><br>※ オプションとクリーンアップの各項目の対応については、<a href="https://jpmem.github.io/blog/wsus/2017-12-05_01/#%E5%8F%82%E8%80%83%E6%83%85%E5%A0%B1-%E5%AE%9A%E6%9C%9F%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%AE%E8%87%AA%E5%8B%95%E5%8C%96%E3%81%AE%E6%96%B9%E6%B3%95">こちらのブログの参考情報</a>を参照してください、</p>
+<ol>
+<li>インデックスの再構築の自動化の手順と同様にタスクの作成を完了 (上述の手順 6 ～ 7) させます。</li>
+<li>試しに作成したタスクを右クリックして [実行する] を選択して実行してみましょう。出力ファイルに以下のようにエラー等が出力されていなければ、正常に登録されています。<br>出来ています。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">削除された古い更新プログラム:0</span><br><span class="line">拒否された期限切れの更新プログラム: 0</span><br><span class="line">削除された古い更新プログラム:87</span><br><span class="line">圧縮された更新プログラム:0</span><br><span class="line">削除された古いコンピューター:0</span><br><span class="line">解放されたディスク領域:0</span><br></pre></td></tr></table></figure>
+<h3 id="不要な更新プログラムの「拒否済み」設定をタスク-スケジューラから自動実行させる"><a href="#不要な更新プログラムの「拒否済み」設定をタスク-スケジューラから自動実行させる" class="headerlink" title="不要な更新プログラムの「拒否済み」設定をタスク スケジューラから自動実行させる"></a>不要な更新プログラムの「拒否済み」設定をタスク スケジューラから自動実行させる</h3></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/microsoft-jpcssmem/WSUS/releases/latest/download/Decline-SupersededUpdates.ps1">こちら</a> より、置き換えられた更新プログラムを「拒否済み」に設定するスクリプトを入手し、WSUS サーバー上に保存します。(Decline-SupersededUpdates.ps1 等)</li>
+<li>インデックスの再構築の時と同様にタスク スケジューラを起動し、基本タスクの作成を行ない、不要な更新プログラムの「拒否済み」設定を実行するスケジュールを指定 (上述の手順 2 ~ 4) します。<br>※ こちらもインデックスの再構築やクリーンアップ ウィザードとはスケジュールが被らないよう、他のメンテナンスの実行開始の数時間後や別の日等を指定します。</li>
+<li>[プログラムの開始] を選択して、以下のようにスクリプトを指定します。本指定については、利用しているポート番号によって -Port 以降の指定を変更する必要があるので、ご注意ください。Windows Server 2012 以降の WSUS 環境は既定で 8530 となります。<br><code>powershell -ExecutionPolicy Unrestricted -Command &quot;C:\WSUS\Decline-SupersededUpdates.ps1 -UpdateServer localhost -Port 8530&quot;</code>  </li>
+<li>インデックスの再構築の自動化の手順と同様にタスクの作成を完了 (上述の手順 6 ～ 7) させます。</li>
+<li>試しに作成したタスクを右クリックして [実行する] を選択して実行してみましょう。出力ファイル SupersededUpdates.csv や SupersededUpdatesBackup.csv が出力されていれば、正常に登録されています。</li>
+</ol>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/WSUS/" rel="tag">WSUS</a></li></ul>
+
+        
+        <a href="https://github.com/jpmem/blog/edit/master/articles/wsus/2020-07-21_01.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../mecm/20210414_01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          Microsoft Endpoint Configuration Manager 環境の HTTP のみの通信が非推奨となります
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../mecm/20190327_01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">System Center Configuration Manager Current Branch クライアントに関連する情報を完全に削除する方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../w365/2021-08-20_01/">Windows 365 Cloud PC を日本語化する手順</a>
+          </li>
+        
+          <li>
+            <a href="../../w365/2021-08-16_01/">Windows 365 FAQ</a>
+          </li>
+        
+          <li>
+            <a href="../../w365/2021-08-11_01/">Windows 365 Business のプロビジョニングが長時間経過しても終了しない場合について</a>
+          </li>
+        
+          <li>
+            <a href="../../w365/2021-08-11_02/">Windows 365 で Microsoft 365 Apps のユーザー ログイン に失敗する</a>
+          </li>
+        
+          <li>
+            <a href="../../w365/2021-08-04_01/">Windows 365 Enterprise をご利用の際の注意点</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Intune/" rel="tag">Intune</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/MECM/" rel="tag">MECM</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/WSUS/" rel="tag">WSUS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Windows-365/" rel="tag">Windows 365</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Intune/">Intune</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/MECM/">MECM</a><span class="tag-list-count">19</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Windows-365/">Windows 365</a><span class="tag-list-count">5</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/WSUS/">WSUS</a><span class="tag-list-count">7</span><ul></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">2020 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/03/">2019 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/02/">2019 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/10/">2018 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/09/">2018 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/08/">2018 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/07/">2018 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/06/">2018 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/05/">2018 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/03/">2018 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/12/">2017 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/11/">2017 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/10/">2017 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/08/">2017 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/02/">2017 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/11/">2016 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/10/">2016 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2014/08/">2014 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2014/03/">2014 / 03</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/Intune/" style="font-size: 10px;">Intune</a> <a href="../../tags/MECM/" style="font-size: 20px;">MECM</a> <a href="../../tags/WSUS/" style="font-size: 16.67px;">WSUS</a> <a href="../../tags/Windows-365/" style="font-size: 13.33px;">Windows 365</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Microsoft Endpoint Manager Support Japan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
