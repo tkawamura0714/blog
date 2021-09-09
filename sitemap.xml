@@ -2,20 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jpmem.github.io/blog/wsus/2018-02-05_01/</loc>
-    
-    <lastmod>2021-09-09</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpmem.github.io/blog/wsus/2018-06-19_01/</loc>
-    
-    <lastmod>2021-09-09</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpmem.github.io/blog/wsus/2019-02-14_01/</loc>
     
     <lastmod>2021-09-09</lastmod>
@@ -24,6 +10,20 @@
   
   <url>
     <loc>https://jpmem.github.io/blog/wsus/2020-07-21_01/</loc>
+    
+    <lastmod>2021-09-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpmem.github.io/blog/wsus/2018-02-05_01/</loc>
+    
+    <lastmod>2021-09-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpmem.github.io/blog/wsus/2018-06-19_01/</loc>
     
     <lastmod>2021-09-09</lastmod>
     
@@ -149,13 +149,6 @@
   </url>
   
   <url>
-    <loc>https://jpmem.github.io/blog/mecm/20180511_01/</loc>
-    
-    <lastmod>2021-09-09</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jpmem.github.io/blog/mecm/20180619_01/</loc>
     
     <lastmod>2021-09-09</lastmod>
@@ -177,7 +170,7 @@
   </url>
   
   <url>
-    <loc>https://jpmem.github.io/blog/mecm/20180308_01/</loc>
+    <loc>https://jpmem.github.io/blog/mecm/20180511_01/</loc>
     
     <lastmod>2021-09-09</lastmod>
     
@@ -185,6 +178,27 @@
   
   <url>
     <loc>https://jpmem.github.io/blog/mecm/20180509_01/</loc>
+    
+    <lastmod>2021-09-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpmem.github.io/blog/mecm/20171025_01/</loc>
+    
+    <lastmod>2021-09-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpmem.github.io/blog/mecm/20171107_01/</loc>
+    
+    <lastmod>2021-09-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jpmem.github.io/blog/mecm/20180308_01/</loc>
     
     <lastmod>2021-09-09</lastmod>
     
@@ -206,20 +220,6 @@
   
   <url>
     <loc>https://jpmem.github.io/blog/mecm/20170818_01/</loc>
-    
-    <lastmod>2021-09-09</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpmem.github.io/blog/mecm/20171025_01/</loc>
-    
-    <lastmod>2021-09-09</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jpmem.github.io/blog/mecm/20171107_01/</loc>
     
     <lastmod>2021-09-09</lastmod>
     
