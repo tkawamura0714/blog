@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210820151247994.png">
 <meta property="og:image" content="https://jpmem.github.io/blog/w365/2021-08-20_01/image-20210820151309134.png">
 <meta property="article:published_time" content="2021-08-19T15:00:00.000Z">
-<meta property="article:modified_time" content="2021-09-17T11:26:57.177Z">
+<meta property="article:modified_time" content="2021-09-17T22:45:24.777Z">
 <meta property="article:author" content="Microsoft Endpoint Manager Support Japan">
 <meta property="article:tag" content="Windows 365">
 <meta name="twitter:card" content="summary">
@@ -112,7 +112,7 @@
         
         <a href="https://github.com/jpmem/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+0644151a-5055-505b-b4cf-67d2dc7b4662%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BWindows+365+Cloud+PC+%E3%82%92%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8C%96%E3%81%99%E3%82%8B%E6%89%8B%E9%A0%86%5D%28https%3A%2F%2Fjpmem.github.io%2Fblog%2Fw365%2F2021-08-20_01%2F%29%0A*+Content+Source%3A+%5Barticles%2Fw365%2F2021-08-20_01.md%5D%28https%3A%2F%2Fgithub.com%2Fjpmem%2Fblog%2Fblob%2Fmaster%2Farticles%2Fw365%2F2021-08-20_01.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
         
-        <a data-url="https://jpmem.github.io/blog/w365/2021-08-20_01/" data-id="cktoa1gp9001g0omtbb0barfy" class="article-share-link">共有</a>
+        <a data-url="https://jpmem.github.io/blog/w365/2021-08-20_01/" data-id="cktoy9z6z001g0oplhcjzg8i7" class="article-share-link">共有</a>
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -125,53 +125,53 @@
 <li><p><a target="_blank" rel="noopener" href="https://windows365.microsoft.com/">https://windows365.microsoft.com</a> にアクセスし、Cloud PC を利用可能なユーザーでサインインして Cloud PC にログインします。</p>
 </li>
 <li><p>スタート メニューより歯車のマークを選択し、[Settings] を立ち上げます。</p>
-<p><img src="/blog/w365/2021-08-20_01/image-20210820150826185.png" alt="image-20210820150826185"></p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820150826185.png"></p>
 </li>
 <li><p>[Time &amp; Language] を選択します。</p>
-<p><img src="/blog/w365/2021-08-20_01/image-20210820150846942.png" alt="image-20210820150846942"></p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820150846942.png"></p>
 </li>
 <li><p>[Date &amp; time] の [Time zone] を “(UTC +09:00) Osaka, Sapporo, Tokyo” に設定します。</p>
-<p><img src="/blog/w365/2021-08-20_01/image-20210827151309134.png" alt="image-20210827151309134"></p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210827151309134.png"></p>
 </li>
 <li><p>[Region] を選択し、[Region] を “Japan”、[Regional format] を “Japanese (Japan)” に設定します。</p>
-<p><img src="/blog/w365/2021-08-20_01/image-20210827151509134.png" alt="image-20210827151509134"></p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210827151509134.png"></p>
 </li>
 <li><p>[Language] - [Add a language] を選択します。</p>
-<p><img src="/blog/w365/2021-08-20_01/image-20210820150903020.png" alt="image-20210820150903020"></p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820150903020.png"></p>
 </li>
 <li><p>“Japanese” を追加し、[Next] をクリックします。</p>
-<p><img src="/blog/w365/2021-08-20_01/image-20210820151025805.png" alt="image-20210820151025805"></p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820151025805.png"></p>
 </li>
 <li><p>下記のように選択し、[Install] をクリックします。</p>
-<p><img src="/blog/w365/2021-08-20_01/image-20210820151042379.png" alt="image-20210820151042379"></p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820151042379.png"></p>
 </li>
 <li><p>言語パックのインストールが開始されます。インストールが完了すると、下記のように通知されるため、[Yes, sign out now.] を選択し、一旦サインアウトします。</p>
-<p><img src="/blog/w365/2021-08-20_01/image-20210820151101169.png" alt="image-20210820151101169"></p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820151101169.png"></p>
 </li>
 <li><p>再度 Cloud PC にサインインし、管理者として実行にて起動した PowerShell コンソールで、以下のコマンドを実行し、システム ロケールを ja-JP に変更します。  </p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-WinSystemLocale</span> <span class="literal">-SystemLocale</span> ja<span class="literal">-JP</span></span><br></pre></td></tr></table></figure></li>
 <li><p>スタート メニューより歯車のマークを選択し、[設定] を立ち上げ直します。</p>
 </li>
 </ol>
-<p>   <img src="/blog/w365/2021-08-20_01/image-20210820151139511.png" alt="image-20210820151139511"></p>
+<p>   <img src="/blog/w365/2021-08-20_01/image-20210820151139511.png"></p>
 <ol start="12">
 <li>[時刻と言語] を選択します。</li>
 </ol>
-<p>   <img src="/blog/w365/2021-08-20_01/image-20210820151159119.png" alt="image-20210820151159119"></p>
+<p>   <img src="/blog/w365/2021-08-20_01/image-20210820151159119.png"></p>
 <ol start="13">
 <li><p>[言語] - [日本語] を選択して [オプション] をクリックします。</p>
-<p><img src="/blog/w365/2021-08-20_01/image-20210820151218317.png" alt="image-20210820151218317"></p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820151218317.png"></p>
 </li>
 <li><p>ハードウェア キーボード レイアウトより [レイアウトを変更する] を選択して、日本語キーボードをご利用の場合は、設定を変更して [今すぐ再起動する] を選択し、再起動を行います。</p>
-<p><img src="/blog/w365/2021-08-20_01/image-20210820151237059.png" alt="image-20210820151237059"></p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820151237059.png"></p>
 </li>
 <li><p>再起動後に接続することで、日本語入力が出来ないか、ご確認ください。なお、IME の準備が整ってない場合、IME の切り替え時に下記のような通知が行われますため、この場合、数分程度お待ちいただけますと幸いです。</p>
-<p><img src="/blog/w365/2021-08-20_01/image-20210820151247994.png" alt="image-20210820151247994"></p>
+<p><img src="/blog/w365/2021-08-20_01/image-20210820151247994.png"></p>
 </li>
 <li><p>ブラウザから利用する場合には、PC に接続後、下記の設定も有効化してください。</p>
-<p><img src="/blog/w365/2021-08-20_01/image-20210820151309134.png" alt="image-20210820151309134"></p>
 </li>
 </ol>
+<p>   <img src="/blog/w365/2021-08-20_01/image-20210820151309134.png">4</p>
 
       
       
