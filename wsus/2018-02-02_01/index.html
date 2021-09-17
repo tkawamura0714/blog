@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>ReportingEvents.log の見方 | Japan Microsoft Endpoint Manager Support Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="みなさん、こんにちは。WSUS サポート チームです。 今日は Windows Update の処理の状況が記録される ReportingEvents.log の見方について紹介します。 このログ ファイル自体は以前の OS から存在していましたが、特に Windows 10 や Windows Server 2016 では Get-WindowsUpdateLog を実行しないと Windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReportingEvents.log の見方">
+<meta property="og:url" content="https://jpmem.github.io/blog/wsus/2018-02-02_01/index.html">
+<meta property="og:site_name" content="Japan Microsoft Endpoint Manager Support Blog">
+<meta property="og:description" content="みなさん、こんにちは。WSUS サポート チームです。 今日は Windows Update の処理の状況が記録される ReportingEvents.log の見方について紹介します。 このログ ファイル自体は以前の OS から存在していましたが、特に Windows 10 や Windows Server 2016 では Get-WindowsUpdateLog を実行しないと Windows">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2018-02-01T15:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-17T11:26:57.205Z">
+<meta property="article:author" content="Microsoft Endpoint Manager Support Japan">
+<meta property="article:tag" content="WSUS">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../blog/atom.xml" title="Japan Microsoft Endpoint Manager Support Blog" type="application/atom+xml">
+  
+
+  <link rel="icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="../../css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="site-header-logo"></div>
+  <div id="site-header-blog-wrapper"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <div id="ms-logo"></div>
+        
+          <a class="main-nav-link" href="../../index.html">Home</a>
+        
+          <a class="main-nav-link" href="../../archives">Archives</a>
+        
+        <a class="main-nav-link" target="_blank" rel="noopener" href="https://cssjpn.github.io/">サポート情報</a>
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../blog/atom.xml" title="RSSフィード"></a>
+        
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//www.bing.com/search" method="get" accept-charset="UTF-8" name="bing-search" onsubmit="var f=this;if(f['q'].value){var searchUrl =  'https://www.bing.com/search?q=' +  encodeURIComponent(f['q'].value + ' site:' + f['sitesearch'].value) ;window.open(searchUrl, 'blank') };return false;" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" id="nav-search-btn" class="search-form-submit"></button><input type="hidden" name="sitesearch" value="https://jpmem.github.io/blog"></form>
+      </div>
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../index.html" id="logo">Japan Microsoft Endpoint Manager Support Blog</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-wsus/2018-02-02_01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header-single">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ReportingEvents.log の見方
+    </h1>
+  
+
+      </header>
+      <div class="article-share">
+        Last Update: 
+        <a href="" class="article-date-single">
+  <time datetime="2018-02-01T15:00:00.000Z" itemprop="datePublished">2018-02-02</time>
+</a>
+        
+        
+        <a href="https://github.com/jpmem/blog/issues/new?title=&body=%0A%0A---%0A%0A%23%23%23%23+Document+Details%0A%0A%E2%9A%A0+*Do+not+edit+this+section.%0A%0A*+ID%3A+d5ebb4ee-1f05-5b80-863d-07dbb06f44c7%0A*+%E5%AF%BE%E8%B1%A1%E8%A8%98%E4%BA%8B%3A+%5BReportingEvents.log+%E3%81%AE%E8%A6%8B%E6%96%B9%5D%28https%3A%2F%2Fjpmem.github.io%2Fblog%2Fwsus%2F2018-02-02_01%2F%29%0A*+Content+Source%3A+%5Barticles%2Fwsus%2F2018-02-02_01.md%5D%28https%3A%2F%2Fgithub.com%2Fjpmem%2Fblog%2Fblob%2Fmaster%2Farticles%2Fwsus%2F2018-02-02_01.md%29%0A*+Author%3A+" class="article-github-issue-link" target="_blank" rel="noopener noreferrer">feedback</a>
+        
+        <a data-url="https://jpmem.github.io/blog/wsus/2018-02-02_01/" data-id="cktoa1gpn00200omtf8cl2wec" class="article-share-link">共有</a>
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>みなさん、こんにちは。WSUS サポート チームです。</p>
+<p>今日は Windows Update の処理の状況が記録される ReportingEvents.log の見方について紹介します。</p>
+<p>このログ ファイル自体は以前の OS から存在していましたが、特に Windows 10 や Windows Server 2016 では Get-WindowsUpdateLog を実行しないと WindowsUpdate.log が参照出来なくなったので、検証の際やトラブル シューティングの際にリアルタイムにログを確認する場合には、こちらのログを利用することをオススメしております。  </p>
+<p>ReportingEvents.log は以下のフォルダにリアルタイムで TXT 形式で保存されます。<br>C:\Windows\SoftwareDistribution\ReportingEvents.log<br><br></p>
+<p>ReportingEvents.log  を見るためには、Windows Update の処理の実行順序を理解しておく必要があります。Windows Update の処理は下記の順に実行され、ReportingEvents.log には、各処理の結果が出力されるため ReportingEvents.log  でどの処理まで進んでいるか、またどの処理で失敗しているのかが確認が可能です。  </p>
+<p>A. 更新プログラムの検出<br>⇒ 新たに適用が必要な更新プログラムがあるかどうかの確認処理</p>
+<p>B. 更新プログラムのダウンロード<br>⇒ 「A」にて検出された更新プログラムのダウンロード処理</p>
+<p>C. 更新プログラムのインストール<br>⇒ 「B」にてダウンロードされた更新プログラムのインストール処理</p>
+<br>
+
+<h1 id="各処理が成功した場合の記録"><a href="#各処理が成功した場合の記録" class="headerlink" title="各処理が成功した場合の記録"></a>各処理が成功した場合の記録</h1><p>Windows Update の各処理が成功した場合には、ReportingEvents.log に以下の通り記録され、処理が正常に進んでいることが確認出来ます。</p>
+<p>A. 更新プログラムの検出 が成功した時の記録<br>AGENT_DETECTION_FINISHED と記録されます。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;68D698EE-B4A7-4CA5-9D33-EFB2EDE6CD36&#125;        2017-12-13 10:37:22:371+0900        1        147 [AGENT_DETECTION_FINISHED]        101        &#123;00000000-0000-0000-0000-000000000000&#125;        0        0        UpdateOrchestrator        Success        Software Synchronization        Windows Update Client successfully detected 3 updates.</span><br></pre></td></tr></table></figure>
+
+<p>B-1. 更新プログラムのダウンロードが開始された時の記録<br>AGENT_DOWNLOAD_STARTED と記録されます。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;1AF10086-220D-47E2-BA6B-7CDA8358E2C8&#125;        2017-12-13 10:37:23:309+0900        1        167 [AGENT_DOWNLOAD_STARTED]        101        &#123;89F1C905-9C84-4A67-9B90-17B5E30B0FCF&#125;        201        0        UpdateOrchestrator        Success        Content Download        Download started.</span><br></pre></td></tr></table></figure>
+
+<p>B-2. 更新プログラムのダウンロードが成功した時の記録<br>AGENT_DOWNLOAD_SUCCEEDED と記録されます。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;4C01117E-1FB6-404C-B32B-3EBE8A15A185&#125;        2017-12-13 10:37:26:762+0900        1        162 [AGENT_DOWNLOAD_SUCCEEDED]        101        &#123;89F1C905-9C84-4A67-9B90-17B5E30B0FCF&#125;        201        0        UpdateOrchestrator        Success        Content Download        Download succeeded.</span><br></pre></td></tr></table></figure>
+
+<p>C-1. 更新プログラムのインストールが開始された時の記録<br>AGENT_INSTALLING_STARTED と記録されます。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;55010EE0-76AE-42B0-A212-89169299185E&#125;        2017-12-13 10:43:11:392+0900        1        181 [AGENT_INSTALLING_STARTED]        101        &#123;9A3FB4A5-968D-47D6-B87E-CD248FB9EEF7&#125;        200        0        UpdateOrchestrator        Success        Content Install        Installation Started: Windows has started installing the following update: 2017-12 x64 ベース システム用 Windows Server 2016 の累積更新プログラム (KB4053579)</span><br></pre></td></tr></table></figure>
+
+<p>C-2. 更新プログラムのインストール後に再起動待ち状態となった際の記録<br>AGENT_INSTALLING_PENDING と記録されます。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;57866C44-0196-4EFB-A265-64B5F691B73F&#125;        2017-12-13 10:59:40:657+0900        1        201 [AGENT_INSTALLING_PENDING]        101        &#123;9A3FB4A5-968D-47D6-B87E-CD248FB9EEF7&#125;        200        240005        UpdateOrchestrator        Success        Content Install        Installation pending.</span><br></pre></td></tr></table></figure>
+
+<p>C-3. 更新プログラムのインストールが成功した時の記録<br>AGENT_INSTALLING_SUCCEEDED と記録されます。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;E9D3C1A8-1EEF-4AD9-9FA8-19BFA0C1FD4F&#125;        2017-12-13 17:39:11:176+0900        1        183 [AGENT_INSTALLING_SUCCEEDED]        101        &#123;9A3FB4A5-968D-47D6-B87E-CD248FB9EEF7&#125;        200        0        UpdateOrchestrator        Success        Content Install        Installation Successful: Windows successfully installed the following update: 2017-12 x64 ベース システム用 Windows Server 2016 の累積更新プログラム (KB4053579)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="各処理が失敗した場合の記録"><a href="#各処理が失敗した場合の記録" class="headerlink" title="各処理が失敗した場合の記録"></a>各処理が失敗した場合の記録</h1><p>これに対して Windows Update の各処理が失敗した場合には、下記の通り失敗した旨とエラー コードが出力されます。</p>
+<p>A. 更新プログラムの検出が失敗した時の記録<br>AGENT_DETECTION_FAILED の記録と共にエラー コードが記録されます。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;F6703CB6-0C82-4E7B-8C75-C25946AA03B0&#125; 2018-01-17 20:13:28:509+0900  1      148 [AGENT_DETECTION_FAILED]      101    &#123;00000000-0000-0000-0000-000000000000&#125; 0      8024402c       UpdateOrchestrator    Failure Software Synchronization      Windows Update Client failed to detect with error 0x8024402c.</span><br></pre></td></tr></table></figure>
+
+<p>B. 更新プログラムのダウンロードが失敗した時の記録<br>AGENT_DOWNLOAD_FAILED の記録と共にエラー コードが記録されます。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;BC2328B6-6BE3-4C84-9F01-E177859503B6&#125;        2017-12-12 19:30:38:444+0900        1        161 [AGENT_DOWNLOAD_FAILED]        101        &#123;3FD93540-CD8C-4939-A71D-1C2BE7767D4D&#125;        200        80246008        UpdateOrchestrator        Failure        Content Download        Error: Download failed.</span><br></pre></td></tr></table></figure>
+
+<p>C. 更新プログラムのインストールが失敗した時の記録<br>AGENT_INSTALLING_FAILED の記録と共にエラー コードが記録されます。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;2C3C39FA-FC0F-4F44-9049-D2AA53B27FFB&#125;        2017-12-12 19:46:19:636+0900        1        182 [AGENT_INSTALLING_FAILED]        101        &#123;BFC8A103-FD5F-4458-9935-231D9F79E2C1&#125;        203        80242015        UpdateOrchestrator        Failure        Content Install        Installation Failure: Windows failed to install the following update with error 0x80242015: 2017-11 x64 ベース システム用 Windows Server 2016 の累積更新プログラム (KB4051033)</span><br></pre></td></tr></table></figure>
+
+<p>また、Windows Update の実行時に出力される一般的なエラー コードは以下の公開情報にて紹介しているので、トラブル シューティングの際には参考としてください。</p>
+<p>Windows Update error code list<br><a target="_blank" rel="noopener" href="https://support.microsoft.com/ja-jp/help/938205/windows-update-error-code-list">https://support.microsoft.com/ja-jp/help/938205/windows-update-error-code-list</a></p>
+
+      
+      
+        <div class="article-disclaimer">
+        
+          <p>※本情報の内容（添付文書、リンク先などを含む）は、作成日時点でのものであり、予告なく変更される場合があります。</p>
+        
+        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/WSUS/" rel="tag">WSUS</a></li></ul>
+
+        
+        <a href="https://github.com/jpmem/blog/edit/master/articles/wsus/2018-02-02_01.md" class="article-github-edit-link" target="_blank" rel="noopener noreferrer">GitHub で編集</a>
+        
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../2018-02-05_01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          WSUS クリーンアップ ウィザードにてタイムアウトが発生する
+        
+      </div>
+    </a>
+  
+  
+    <a href="../2017-12-11_01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">不要な更新プログラムは「拒否済み」に設定しよう！</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../w365/2021-09-13_01/">Windows 365 用にリモート デスクトップ クライアントをセットアップする手順</a>
+          </li>
+        
+          <li>
+            <a href="../../w365/2021-08-20_01/">Windows 365 Cloud PC を日本語化する手順</a>
+          </li>
+        
+          <li>
+            <a href="../../w365/2021-08-16_01/">Windows 365 FAQ</a>
+          </li>
+        
+          <li>
+            <a href="../../w365/2021-08-11_01/">Windows 365 Business のプロビジョニングが長時間経過しても終了しない場合について</a>
+          </li>
+        
+          <li>
+            <a href="../../w365/2021-08-11_02/">Windows 365 で Microsoft 365 Apps のユーザー ログイン に失敗する</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <!-- <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Intune/" rel="tag">Intune</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/MECM/" rel="tag">MECM</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/WSUS/" rel="tag">WSUS</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Windows-365/" rel="tag">Windows 365</a></li></ul>  -->
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Intune/">Intune</a><span class="tag-list-count">2</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/MECM/">MECM</a><span class="tag-list-count">20</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Windows-365/">Windows 365</a><span class="tag-list-count">6</span><ul></ul></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/WSUS/">WSUS</a><span class="tag-list-count">11</span><ul></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">2021 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">2021 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/04/">2021 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">2020 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/03/">2019 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/02/">2019 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/10/">2018 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/09/">2018 / 09</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/08/">2018 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/07/">2018 / 07</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/06/">2018 / 06</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/05/">2018 / 05</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/03/">2018 / 03</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2018/02/">2018 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/12/">2017 / 12</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/11/">2017 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/10/">2017 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/08/">2017 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2017/02/">2017 / 02</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/11/">2016 / 11</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2016/10/">2016 / 10</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2014/08/">2014 / 08</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2014/04/">2014 / 04</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2014/03/">2014 / 03</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="../../tags/Intune/" style="font-size: 10px;">Intune</a> <a href="../../tags/MECM/" style="font-size: 20px;">MECM</a> <a href="../../tags/WSUS/" style="font-size: 16.67px;">WSUS</a> <a href="../../tags/Windows-365/" style="font-size: 13.33px;">Windows 365</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Microsoft Endpoint Manager Support Japan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
